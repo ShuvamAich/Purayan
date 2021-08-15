@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purayan</title>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="icon" href="./img/logo.png">
+
+    <!--Flickity-->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script>
+        var TxtRotate = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtRotate.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 300 - Math.random() * 100;
+
+            if (this.isDeleting) {
+                delta /= 2;
+            }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo">
+                <a href="#">Purayan</a>
+            </div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#podcasts">Podcasts</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="banner" id="home">
+        <div class="title-text">
+            <h1>Purayan</h1>
+        </div>
+        <div class="text-center">
+            <h1>Marrying
+                <span class="txt-rotate" data-period="2000" data-rotate='["travel.","mythology.","culture."]'></span>
+            </h1>
+        </div>
+        <h2> Purayan produces digital content which marries travel, mythology and culture.</h2>
+        <div class="down">
+            <i class="fas fa-angle-double-down fa-3x"></i>
+        </div>
+        <div class="logocard">
+            <div class="card">
+                <div class="container">
+                    <h1>What is Purayan?</h1>
+                </div>
+                <img src="./img/logo.png">
+            </div>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="text-center">
+            <h2>About Us</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="column">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio reprehenderit iste mollitia accusamus, beatae error quos magni enim tenetur consectetur maxime reiciendis vero nam iure vel, ratione harum, nobis dolores? Lorem ipsum
+                            dolor sit amet consectetur adipisicing elit. Neque reprehenderit placeat eos totam blanditiis, illum mollitia architecto dolorem in.
+                        </p>
+
+                    </div>
+                    <div class="column">
+                        <br>
+                        <iframe src="https://www.youtube.com/embed/ERuPsuraZrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="videos" id="videos">
+        <i class="fas fa-grip-lines-vertical fa-3x"></i>
+        <h1>Videos</h1>
+        <div class="container services-list">
+            <div class="carousel" data-flickity='{ "wrapAround": false, "autoPlay": true, "groupCells": 1  }'>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/5N6g1bTTCyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/MnwhP-qI-14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/ID-mDUATMF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/kqDw47XXNHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/z0Ts9oc7QBU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/6Ij5AYp1Ntk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/d8vw8_XxQSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-cell">
+                    <iframe src="https://www.youtube.com/embed/SLsqP96W9lw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="podcasts" id="podcasts">
+        <i class="fas fa-grip-lines-vertical fa-3x"></i>
+        <h1>Podcasts</h1>
+        <div class="container services-list">
+            <div class="carousel" data-flickity='{ "wrapAround": false, "autoPlay": true, "groupCells": 1  }'>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1048493215&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/what-is-purayan" title="What Is Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1058287993&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/purayan-s1-intro" title="Purayan S1 Intro" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1058287993&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/purayan-s1-intro" title="Purayan S1 Intro" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1062817213&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/jesus-and-dinosys-mp3" title="S1E4 Resurrection" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1067158078&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;">P</a>
+                        <a href="https://soundcloud.com/user-991438289/s1e5-wings-of-fire" title="S1E5 - Wings of Fire" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1071882481&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/s1e6-the-great-flood" title="S1E6 - The great flood" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1076482741&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/s1e7-the-last-journey" title="S1E7 The last journey" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1081118518&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                        <a href="https://soundcloud.com/user-991438289" title="Purayan" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                        <a href="https://soundcloud.com/user-991438289/s1-conclusion" title="S1 Conclusion" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="reviews" id="reviews">
+        <form action="#">
+
+            <header>
+                <h1>We Would Love To Hear From You</h1>
+            </header>
+
+            <div>
+                <label class="desc" id="title1" for="Field1">Full Name</label>
+                <div>
+                    <input id="Field1" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="1">
+                </div>
+            </div>
+
+            <div>
+                <label class="desc" id="title3" for="Field3">
+                Email
+              </label>
+                <div>
+                    <input id="Field3" name="Field3" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
+                </div>
+            </div>
+
+            <div>
+                <label class="desc" id="title4" for="Field4">
+                Message
+              </label>
+
+                <div>
+                    <textarea id="Field4" name="Field4" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="contact" id="contact">
+        <footer class="footer">
+            <div class="footer-left col-md-4 col-sm-6">
+                <p class="about">
+                    <span> About the company</span> Ut congue augue non tellus bibendum, in varius tellus condimentum. In scelerisque nibh tortor, sed rhoncus odio condimentum in. Sed sed est ut sapien ultrices eleifend. Integer tellus est, vehicula eu
+                    lectus tincidunt, ultricies feugiat leo. Suspendisse tellus elit, pharetra in hendrerit ut, aliquam quis augue. Nam ut nibh mollis, tristique ante sed, viverra massa.
+                </p>
+
+            </div>
+
+            <div class="footer-center col-md-4 col-sm-6">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span> Baker Street</span> London, United Kingdom</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p> (+00) 0000 000 000</p>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="#"> office@company.com</a></p>
+                </div>
+            </div>
+            <div class="footer-right col-md-4 col-sm-6">
+                <img src="./img/logo.png">
+                <p class="menu">
+                    <a href="#home"> Home</a> |
+                    <a href="#about"> About</a> |
+                    <a href="#videos"> Videos</a> |
+                    <a href="#podcasts"> Podasts</a> |
+                    <a href="#reviews"> Reviews</a>
+
+                </p>
+
+            </div>
+            <div class="social-wrapper">
+                <a href="#"><i class="fab fa-facebook fa-3x"></i></a>
+                <a href="#"><i class="fab fa-soundcloud fa-3x"></i></a>
+                <a href="#"><i class="fab fa-youtube fa-3x"></i></a>
+                <a href="#"><i class="fab fa-spotify fa-3x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-3x"></i></a>
+            </div>
+            <p class="name">
+                Purayan &copy; 2021
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const body = document.querySelector("body");
+        const navbar = document.querySelector(".navbar");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            navbar.classList.add("show");
+            menuBtn.classList.add("hide");
+            body.classList.add("disabled");
+        }
+        cancelBtn.onclick = () => {
+            body.classList.remove("disabled");
+            navbar.classList.remove("show");
+            menuBtn.classList.remove("hide");
+        }
+        window.onscroll = () => {
+            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+        }
+    </script>
+
+
+</body>
+
+</html>

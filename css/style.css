@@ -1,0 +1,524 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .content {
+        max-width: 1250px;
+        margin: auto;
+        padding: 0 30px;
+    }
+    
+    .banner {
+        background: rgb(10, 73, 60);
+        background-image: url("../img/header-bg.png");
+        height: 118vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .title-text h1 {
+        text-align: center;
+        font-size: 80px;
+        padding-top: 150px;
+        color: whitesmoke;
+    }
+    
+    .text-center {
+        text-align: center;
+        font-size: 25px;
+        padding-top: 20px;
+        color: rgb(204, 158, 6);
+    }
+    
+    .banner h2 {
+        color: whitesmoke;
+        text-align: center;
+        padding-top: 40px;
+        animation: myAnim 1s ease 0s 1 normal forwards;
+    }
+    
+    @keyframes myAnim {
+        0% {
+            opacity: 0;
+            transform: translateY(250px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .down {
+        padding-top: 120px;
+        text-align: center;
+        color: wheat;
+    }
+    
+    @media (max-width: 1230px) {}
+    
+    @media (max-width: 1100px) {}
+    
+    @media (max-width: 900px) {}
+    
+    @media (max-width: 868px) {
+        .title-text h1 {
+            text-align: center;
+            font-size: 40px;
+            padding-top: 150px;
+            color: whitesmoke;
+        }
+        .banner h2 {
+            color: whitesmoke;
+            text-align: center;
+            padding-top: 40px;
+            animation: myAnim 1s ease 0s 1 normal forwards;
+            font-size: 18px;
+        }
+        .text-center {
+            text-align: center;
+            font-size: 15px;
+            padding-top: 20px;
+            color: rgb(204, 158, 6);
+        }
+    }
+    
+    @media (max-width: 380px) {}
+    
+    .logocard {
+        padding-left: 405px;
+        padding-top: 35px;
+    }
+    
+    .card {
+        background: whitesmoke;
+        height: 410px;
+        width: 720px;
+        border-radius: 15px;
+        align-self: center;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        box-shadow: 0px 0px 15px rgb(131, 131, 131);
+    }
+    
+    .card .container h1 {
+        padding-top: 20px;
+        color: rgb(32, 32, 32);
+    }
+    
+    .card img {
+        padding-top: 30px;
+        width: 300px;
+        height: 350px;
+    }
+    
+    .about {
+        margin-top: 240px;
+        height: 60vh;
+    }
+    
+    .about .text-center {
+        color: rgb(32, 32, 32);
+    }
+    
+    .about .title {
+        font-size: 38px;
+        font-weight: 700;
+    }
+    
+    .about p {
+        padding-top: 80px;
+        text-align: justify;
+        font-size: 20px;
+    }
+    
+    .about .column {
+        width: 50%;
+        float: left;
+        padding-left: 50px;
+    }
+    
+    .about iframe {
+        height: 250px;
+        width: 350px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 30px rgb(12, 80, 63);
+    }
+    
+    .videos {
+        height: 100vh;
+    }
+    
+    .videos h1 {
+        padding-top: 135px;
+        padding-left: 90px;
+        font-size: 40px;
+        color: rgb(32, 32, 32);
+        padding-bottom: 60px;
+    }
+    
+    .videos i {
+        padding-left: 50px;
+        padding-top: 140px;
+        float: left;
+        color: rgb(255, 166, 0);
+        padding-bottom: 60px;
+    }
+    
+    .carousel-cell {
+        padding-left: 50px;
+    }
+    
+    .cell {
+        padding-left: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .carousel-cell iframe {
+        width: 450px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    
+    .podcasts {
+        height: 100vh;
+    }
+    
+    .podcasts h1 {
+        padding-top: 135px;
+        padding-left: 90px;
+        font-size: 40px;
+        color: rgb(32, 32, 32);
+        padding-bottom: 120px;
+    }
+    
+    .podcasts i {
+        padding-left: 50px;
+        padding-top: 140px;
+        float: left;
+        color: rgb(255, 166, 0);
+        padding-bottom: 120px;
+    }
+    
+    .podcasts .carousel-cell iframe {
+        width: 450px;
+        height: 200px;
+        border-radius: 0px;
+    }
+    
+    .reviews {
+        height: 100vh;
+        padding-top: 100px;
+    }
+    
+    form header {
+        margin: 0 0 20px 0;
+    }
+    
+    form header div {
+        font-size: 90%;
+        color: #999;
+    }
+    
+    form header h1 {
+        margin: 0 0 5px 0;
+        text-align: center;
+        color: rgb(32, 32, 32);
+        padding-bottom: 100px;
+    }
+    
+    form .button {
+        padding-left: 50%;
+    }
+    
+    form button {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 20px;
+    }
+    
+    form>div {
+        clear: both;
+        overflow: hidden;
+        padding: 1px;
+        margin: 0 0 10px 0;
+    }
+    
+    form>div>fieldset>div>div {
+        margin: 0 0 5px 0;
+    }
+    
+    form>div>label,
+    legend {
+        width: 25%;
+        float: left;
+        padding-right: 10px;
+    }
+    
+    form>div>div,
+    form>div>fieldset>div {
+        width: 75%;
+        float: right;
+    }
+    
+    form>div>fieldset label {
+        font-size: 90%;
+    }
+    
+    fieldset {
+        border: 0;
+        padding: 0;
+    }
+    
+    input[type=text],
+    input[type=email],
+    textarea {
+        width: 80%;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    input[type=text],
+    input[type=email],
+    {
+        width: 80%;
+    }
+    
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=url]:focus,
+    input[type=password]:focus,
+    textarea:focus {
+        outline: 0;
+        border-color: #4697e4;
+    }
+    
+    @media (max-width: 600px) {
+        form>div {
+            margin: 0 0 15px 0;
+        }
+        form>div>label,
+        legend {
+            width: 100%;
+            float: none;
+            margin: 0 0 5px 0;
+        }
+        form>div>div,
+        form>div>fieldset>div {
+            width: 100%;
+            float: none;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=url],
+        input[type=password],
+        textarea,
+        select {
+            width: 100%;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        form>div>label,
+        legend {
+            text-align: right;
+        }
+    }
+    
+    .footer {
+        background-color: #216856;
+        height: 75vh;
+        text-align: left;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 50px;
+        padding-top: 80px;
+    }
+    
+    .footer img {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .footer .footer-left,
+    .footer .footer-center,
+    .footer .footer-right {
+        display: inline-block;
+        vertical-align: top;
+    }
+    /* footer left*/
+    
+    .footer .footer-left {
+        width: 33%;
+        padding-right: 15px;
+    }
+    
+    .footer .about {
+        line-height: 20px;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: normal;
+        margin: 0;
+    }
+    
+    .footer .about span {
+        display: block;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    /* footer center*/
+    
+    .footer .footer-center {
+        width: 30%;
+    }
+    
+    .footer .footer-center i {
+        background-color: #333b38;
+        color: #ffffff;
+        font-size: 25px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 42px;
+        margin: 10px 15px;
+        vertical-align: middle;
+    }
+    
+    .footer .footer-center i.fa-envelope {
+        font-size: 17px;
+        line-height: 38px;
+    }
+    
+    .footer .footer-center p {
+        display: inline-block;
+        color: #ffffff;
+        vertical-align: middle;
+        margin: 0px;
+    }
+    
+    .footer .footer-center p span {
+        display: block;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 2;
+    }
+    
+    .footer .footer-center p a {
+        color: #0099ff;
+        text-decoration: none;
+    }
+    /* footer right*/
+    
+    .footer .footer-right {
+        width: 35%;
+    }
+    
+    .footer h2 {
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: normal;
+        margin: 0;
+    }
+    
+    .footer h2 span {
+        color: #0099ff;
+    }
+    
+    .footer .menu {
+        color: #ffffff;
+        margin: 20px 0 12px;
+        padding: 0;
+    }
+    
+    .footer .menu a {
+        display: inline-block;
+        line-height: 1.8;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .footer .menu a:hover {
+        color: #ffd900;
+    }
+    
+    .footer .name {
+        color: #0099ff;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    @media (max-width: 767px) {
+        .footer {
+            font-size: 14px;
+        }
+        .footer .footer-left,
+        .footer .footer-center,
+        .footer .footer-right {
+            display: block;
+            width: 100%;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .footer .footer-center i {
+            margin-left: 0;
+        }
+    }
+    
+    .social-wrapper {
+        margin-top: -150px;
+        align-items: center;
+        align-self: center;
+        text-align: center;
+    }
+    
+    .fa-facebook,
+    .fa-instagram,
+    .fa-spotify,
+    .fa-youtube,
+    .fa-soundcloud {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .fa-facebook {
+        color: rgb(0, 102, 255);
+    }
+    
+    .fa-spotify {
+        color: rgb(7, 207, 7);
+    }
+    
+    .fa-instagram {
+        color: rgb(186, 24, 197);
+    }
+    
+    .fa-youtube {
+        color: red;
+    }
+    
+    .fa-soundcloud {
+        color: rgb(243, 86, 29);
+    }
+    
+    .social-wrapper a:hover {
+        transition-duration: ease 1.8s;
+        opacity: 1;
+        transform: scale(1.5, 1.5);
+        filter: brightness(1.0) drop-shadow(1px 8px 30px rgb(153, 153, 153));
+    }
