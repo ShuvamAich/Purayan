@@ -1,2 +1,2 @@
 # Purayan
-Travel, Mythology, Culturw
+Travel, Mythology, Culture
